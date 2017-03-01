@@ -16,15 +16,13 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.view.JstlView;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan("fi.gosu.kuvaarvaus")
+@ComponentScan("fi.gosu.ika.ennatys")
 @PropertySource("classpath:application.properties")
-@EnableJpaRepositories("fi.gosu.kuvaarvaus.repository")
+@EnableJpaRepositories("fi.gosu.ika.ennatys.repository")
 public class DataBaseConfig {
 
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
@@ -78,15 +76,6 @@ public class DataBaseConfig {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
         return transactionManager;
-    }
-
-    @Bean
-    public UrlBasedViewResolver setupViewResolver() {
-        UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-        resolver.setPrefix("/WEB-INF/views/");
-        resolver.setSuffix(".jsp");
-        resolver.setViewClass(JstlView.class);
-        return resolver;
     }
 
 }

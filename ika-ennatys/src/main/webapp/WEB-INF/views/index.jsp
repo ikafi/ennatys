@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="fi">
@@ -56,76 +57,27 @@
     <center>
         <img src="/resources/logo.png" />
         <h1>ZETA - HALL OF FAME</h1>
-        <div class="category">
-            <div class="title">RAKENNUKSET</div>
-            <table>
-                <tr>
-                    <td>Kaupungintalo</td>
-                    <td class="value">17</td>
-                    <td class="user">Aikain</td>
-                    <td class="date">01.03.2017</td>
-                </tr>
-                <tr>
-                    <td>Akatemia</td>
-                    <td class="value">12</td>
-                    <td class="user">Aikain</td>
-                    <td class="date">02.03.2017</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-        </div>
-        <div class="category">
-            <div class="title">TUTKIMUKSET</div>
-            <table>
-                <tr>
-                    <td>Merenkulku</td>
-                    <td class="value">Syvyys</td>
-                    <td class="user">Aikain</td>
-                    <td class="date">01.03.2017</td>
-                </tr>
-                <tr>
-                    <td>Talous</td>
-                    <td class="value">Arkkitehtuuri</td>
-                    <td class="user">Aikain</td>
-                    <td class="date">01.03.2017</td>
-                </tr>
-                <tr>
-                    <td>Tiede</td>
-                    <td class="value">Vakoilu</td>
-                    <td class="user">Aikain</td>
-                    <td class="date">01.03.2017</td>
-                </tr>
-                <tr>
-                    <td>Sotateknologia</td>
-                    <td class="value">Muurinmurtaja</td>
-                    <td class="user">Aikain</td>
-                    <td class="date">01.03.2017</td>
-                </tr>
-                <tr>
-                    <td>Tiedemiehet</td>
-                    <td class="value">12</td>
-                    <td class="user">Aikain</td>
-                    <td class="date">01.03.2017</td>
-                </tr>
-                <tr>
-                    <td>Tutkimuspisteitä tunnissa</td>
-                    <td class="value">14</td>
-                    <td class="user">Aikain</td>
-                    <td class="date">01.03.2017</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-        </div>
+        <c:forEach items="${categories}" var="category">
+            <div class="category">
+                <div class="title">${fn:toUpperCase(category.name)}</div>
+                <table>
+                    <c:forEach items="${category.records}" var="record">
+                        <tr>
+                            <td>${record.name}</td>
+                            <td class="value">${record.value}</td>
+                            <td class="user">${record.user}</td>
+                            <td class="date">${record.date}</td>
+                        </tr>
+                    </c:forEach>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </c:forEach>
     </center>
 </div>
 </body>

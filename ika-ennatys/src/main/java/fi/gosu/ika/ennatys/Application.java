@@ -6,7 +6,7 @@ import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-@EntityScan(basePackages = "fi.gosu.kuvaarvaus.domain")
+@EntityScan(basePackages = "fi.gosu.ika.ennatys")
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
