@@ -51,3 +51,6 @@ td.user {
 td.date {
     width: 100px;
 }
+.modal-body {
+    height: 300px;
+}
