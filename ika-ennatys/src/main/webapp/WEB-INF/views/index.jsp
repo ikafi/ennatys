@@ -62,7 +62,7 @@
                 <div class="title">${fn:toUpperCase(category.name)}</div>
                 <table>
                     <c:forEach items="${category.records}" var="record">
-                        <tr>
+                        <tr onclick="update(this, ${record.id}, '${record.name}', '${record.value}', '${record.user}', '${record.date}', '${record.evidence}');">
                             <td>${record.name}</td>
                             <td class="value">${record.value}</td>
                             <td class="user">${record.user}</td>
@@ -78,17 +78,16 @@
                 </table>
             </div>
         </c:forEach>
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
     </center>
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="updateModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Päivitä ennätys</h4>
+                    <h4 class="modal-title">Päivitä ennätys "<span id="name"></span>"</h4>
                 </div>
                 <div class="modal-body">
-                    <form action="/record" method="POST" role="form">
+                    <form id="updateForm" action="/record" method="POST" role="form">
                         <div class="form-group">
                             <label for="value">Ennätys</label>
                             <input type="text" class="form-control" id="value" id="value" placeholder="Ennätysen arvo"/>
@@ -96,6 +95,10 @@
                         <div class="form-group">
                             <label for="user">Nimesi</label>
                             <input type="text" class="form-control" id="user" name="user" placeholder="Nimesi"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="user">Päivämäärä</label>
+                            <input type="text" class="form-control" id="date" name="date" placeholder="XX.YY.ZZZZ"/>
                         </div>
                         <div class="form-group">
                             <label for="evidence">Todiste (linkki kuvaan)</label>
