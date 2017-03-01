@@ -19,7 +19,7 @@ public class DefaultController {
 
     @RequestMapping("favicon.ico")
     public String favicon() {
-        return "redirect:/resources/favicon.ico";
+        return "forward:/resources/favicon.ico";
     }
 
 }
