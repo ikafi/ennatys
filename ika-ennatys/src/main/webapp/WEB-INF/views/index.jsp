@@ -9,18 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Ikariam ennätys - Zeta</title>
-    <meta name="description" content="Ikariam ennätys - Zeta on visailua varten sivusto, jolla saa kuvasta peitettyjä automaattisesti osia sekä luotua uniikit toisiinsa yhdistämättömät osoitteet kuville.">
+    <meta name="description" content="Ikariamin Suomen uusimman serverin Zetan ennätykset täältä vuorokauden ympäri! Seuraa parhaiden pelaajien karkaamista horisonttiin tai ilmoita omat ennätyksesi muiden nähtäville.">
     <link rel="canonical" href="https://zeta.gosu.fi/">
 
     <meta property="og:site_name" content="Ikariam ennätys - Zeta">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ikariam ennätys - Zeta">
-    <meta property="og:description" content="Ikariam ennätys - Zeta on visailua varten sivusto, jolla saa kuvasta peitettyjä automaattisesti osia sekä luotua uniikit toisiinsa yhdistämättömät osoitteet kuville.">
+    <meta property="og:description" content="Ikariamin Suomen uusimman serverin Zetan ennätykset täältä vuorokauden ympäri! Seuraa parhaiden pelaajien karkaamista horisonttiin tai ilmoita omat ennätyksesi muiden nähtäville.">
     <meta property="og:url" content="https://zeta.gosu.fi/">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Ikariam ennätys - Zeta">
-    <meta name="twitter:description" content="Ikariam ennätys - Zeta on visailua varten sivusto, jolla saa kuvasta peitettyjä automaattisesti osia sekä luotua uniikit toisiinsa yhdistämättömät osoitteet kuville.">
+    <meta name="twitter:description" content="Ikariamin suomenSuusimman serverin Zetan ennätykset täältä vuorokauden ympäri! Seuraa parhaiden pelaajien karkaamista horisonttiin tai ilmoita omat ennätyksesi muiden nähtäville.">
     <meta name="twitter:url" content="https://zeta.gosu.fi/">
 
     <script async="" src="//www.google-analytics.com/analytics.js"></script><script type="application/ld+json">
@@ -29,7 +29,7 @@
       "@type": "Website",
       "publisher": "Ikariam ennätys - Zeta",
       "url": "https://zeta.gosu.fi/",
-      "description": "Ikariam ennätys - Zeta on visailua varten sivusto, jolla saa kuvasta peitettyjä automaattisesti osia sekä luotua uniikit toisiinsa yhdistämättömät osoitteet kuville."
+      "description": "Ikariamin suomen uusimman serverin zetan ennätykset täältä vuorokauden ympäri! Seuraa parhaiden pelaajien karkaamista horisonttiin tai ilmoita omat ennätyksesi muiden nähtäville."
     }
     </script>
 
