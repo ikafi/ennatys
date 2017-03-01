@@ -1,0 +1,16 @@
+version: "2"
+services:
+  ika:
+    build: ika-ennatys
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "0.0.0.0:5569:80"
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=ika-ennatys
+    volumes:
+      - /srv/data/ika-ennatys/mysql:/var/lib/mysql

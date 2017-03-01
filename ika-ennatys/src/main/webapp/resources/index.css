@@ -1,0 +1,53 @@
+body {
+    background-color: #DDDDDD;
+    min-width: 687px;
+    font-family: Serif;
+    font-color: #000000;
+    font-size: 18px;
+}
+h1 {
+    color: #7e0d0a;
+    text-decoration: underline;
+    font-weight: bolder;
+    font-size: 48px;
+}
+.category {
+    width: 600px;
+}
+.title {
+    color: #FFFFFF;
+    text-align: left;
+    background-color: #7e0d0a;
+    width: 100%;
+    padding-left: 15px;
+    font-size: 20px;
+}
+table, tbody, tr {
+    width: 100%;
+}
+tr {
+    height: 25px;
+}
+tr:nth-child(even)  {
+    background-color: #e2c058;
+}
+tr:nth-child(odd) {
+    background-color: #f2c058;
+}
+td:first-child {
+    padding-left:10px;
+}
+td {
+    padding-right: 15px;
+}
+td.value {
+    width: 140px;
+    text-align: right;
+}
+td.user {
+    width: 140px;
+    text-align: right;
+}
+td.date {
+    width: 100px;
+}
