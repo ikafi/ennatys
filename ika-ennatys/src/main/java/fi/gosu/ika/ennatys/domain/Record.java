@@ -15,6 +15,7 @@ public class Record extends AbstractPersistable<Long> {
     private String name;
     private String value;
     private String user;
+    private String evidence;
     private Date date;
     @ManyToOne
     @JoinColumn(name="Category_ID")
@@ -42,6 +43,14 @@ public class Record extends AbstractPersistable<Long> {
 
     public void setUser(String user) {
         this.user = user;
+    }
+
+    public String getEvidence() {
+        return evidence;
+    }
+
+    public void setEvidence(String evidence) {
+        this.evidence = evidence;
     }
 
     public Date getDate() {
