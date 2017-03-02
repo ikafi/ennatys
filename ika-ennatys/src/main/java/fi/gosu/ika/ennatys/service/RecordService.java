@@ -65,7 +65,7 @@ public class RecordService {
 
     public void update(Record record) throws GeneralException {
         if (record.getTmpId() == null) throw new GeneralException("Id puuttuu!");
-        if (record.getUser() == null || record.getUser().isEmpty()) throw new GeneralException("Anna nimesi!");
+        if (record.getUser() == null || record.getUser().isEmpty()) throw new GeneralException("Ennätys tarvitsee haltijan!");
         if (record.getDate() == null) throw new GeneralException("Päivä puuttuu!");
         if (record.getDate().before(new Date(1488400000000L))) throw new GeneralException("Ennätys ei voi sijoittua ennen serverin alkamispäivää!");
         if (record.getEvidence() == null || record.getEvidence().isEmpty()) throw new GeneralException("Todiste puuttuu!");

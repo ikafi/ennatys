@@ -107,8 +107,8 @@
                             <input type="text" class="form-control" id="value" name="value" placeholder="Ennätyksen arvo (määrä yms, jätä tyhjäksi 'Ensimmäisenä..'-ennätyksille)" autocomplete="off" />
                         </div>
                         <div class="form-group">
-                            <label for="user">Nimesi</label>
-                            <input type="text" class="form-control" id="user" name="user" placeholder="Nimesi" required="required" autocomplete="off" />
+                            <label for="user">Ennätyksen haltija</label>
+                            <input type="text" class="form-control" id="user" name="user" placeholder="Ennätyksen haltija" required="required" autocomplete="off" />
                         </div>
                         <div class="form-group">
                             <label for="user">Päivämäärä</label>
