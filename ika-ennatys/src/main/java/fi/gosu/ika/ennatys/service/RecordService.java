@@ -1,9 +1,11 @@
 package fi.gosu.ika.ennatys.service;
 
 import fi.gosu.ika.ennatys.domain.Category;
+import fi.gosu.ika.ennatys.domain.HistoryRecord;
 import fi.gosu.ika.ennatys.domain.Record;
 import fi.gosu.ika.ennatys.exception.GeneralException;
 import fi.gosu.ika.ennatys.repository.CategoryRepository;
+import fi.gosu.ika.ennatys.repository.HistoryRecordRepository;
 import fi.gosu.ika.ennatys.repository.RecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ public class RecordService {
 
     @Autowired private CategoryRepository categoryRepository;
     @Autowired private RecordRepository recordRepository;
+    @Autowired private HistoryRecordRepository historyRecordRepository;
 
     @PostConstruct
     public void init() {
@@ -72,6 +75,15 @@ public class RecordService {
         if (!record.getEvidence().startsWith("http://") && !record.getEvidence().startsWith("https://")) throw new GeneralException("Linkin on alettava 'http://' tai 'https://'");
         Record oldRecord = recordRepository.findOne(record.getTmpId());
         if (oldRecord == null) throw new GeneralException("Päivitystä ei löytynyt!");
+        if (oldRecord.getValue() != null && !oldRecord.getValue().isEmpty()) {
+            HistoryRecord historyRecord = new HistoryRecord();
+            historyRecord.setValue(oldRecord.getValue());
+            historyRecord.setUser(oldRecord.getUser());
+            historyRecord.setDate(oldRecord.getDate());
+            historyRecord.setEvidence(oldRecord.getEvidence());
+            historyRecord.setRecord(oldRecord);
+            historyRecordRepository.save(historyRecord);
+        }
         oldRecord.setValue(record.getValue());
         oldRecord.setUser(record.getUser());
         oldRecord.setDate(record.getDate());

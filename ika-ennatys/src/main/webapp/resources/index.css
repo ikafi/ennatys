@@ -63,3 +63,15 @@ td.link {
 .modal-body {
     height: 350px;
 }
+#historyTable thead tr {
+    background-color: #7e0d0a;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+#historyTable thead tr th:first-child {
+    padding-left: 10px;
+}
+#historyTable .value, #historyTable .user {
+    text-align: left;
+    width: 200px;
+}

@@ -71,7 +71,15 @@
                 <div class="title">${fn:toUpperCase(category.name)}</div>
                 <table>
                     <c:forEach items="${category.records}" var="record">
-                        <tr onclick="update(this, ${record.id}, '${record.name}', '${record.value}', '${record.user}', '${record.date}', '${record.evidence}');">
+                        <tr onclick="update(this, ${record.id}, '${record.name}', '${record.value}', '${record.user}', '${record.date}', '${record.evidence}',
+                                [<c:forEach items="${record.history}" var="history">
+                                    {
+                                        'value':'${history.value}',
+                                        'user':'${history.user}',
+                                        'evidence':'${history.evidence}',
+                                        'date':'${history.date}'
+                                    },
+                                </c:forEach>]);">
                             <td>${record.name}</td>
                             <td class="value">${record.value}</td>
                             <td class="user">${record.user}</td>
@@ -125,6 +133,12 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" onclick="submitUpdateForm()">Päivitä</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Peruuta</button>
+                </div>
+                <div class="modal-header">
+                    <h4 class="modal-title">Historia</h4>
+                </div>
+                <div class="modal-footer">
+                    <div id="history"></div>
                 </div>
             </div>
         </div>

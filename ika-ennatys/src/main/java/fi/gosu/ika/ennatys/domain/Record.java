@@ -4,7 +4,9 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Aikain on 1.3.2017.
@@ -23,6 +25,12 @@ public class Record extends AbstractPersistable<Long> {
     private Category category;
     @Transient
     private Long tmpId;
+    @OneToMany(mappedBy = "record")
+    private List<HistoryRecord> history;
+
+    public Record() {
+        this.history = new ArrayList<>();
+    }
 
     public String getName() {
         return name;
@@ -78,5 +86,13 @@ public class Record extends AbstractPersistable<Long> {
 
     public void setTmpId(Long tmpId) {
         this.tmpId = tmpId;
+    }
+
+    public List<HistoryRecord> getHistory() {
+        return history;
+    }
+
+    public void setHistory(List<HistoryRecord> history) {
+        this.history = history;
     }
 }
