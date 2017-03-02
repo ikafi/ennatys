@@ -81,9 +81,11 @@
                             <td class="value">${record.value}</td>
                             <td class="user">${record.user}</td>
                             <td class="date">${record.date}</td>
+                            <td class="link"><a href="${not empty record.evidence ? record.evidence : "#"}" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a></td>
                         </tr>
                     </c:forEach>
                     <tr>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>

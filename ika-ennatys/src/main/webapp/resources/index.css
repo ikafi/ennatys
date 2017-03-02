@@ -45,15 +45,20 @@ td {
     padding-right: 15px;
 }
 td.value {
-    width: 130px;
+    width: 115px;
     text-align: right;
 }
 td.user {
-    width: 130px;
+    width: 125px;
     text-align: right;
 }
 td.date {
     width: 100px;
+}
+td.link {
+    padding: 0;
+    margin: 0 2px 0 0;
+    width: 22px;
 }
 .modal-body {
     height: 350px;

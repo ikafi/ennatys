@@ -69,6 +69,7 @@ public class RecordService {
         if (record.getDate() == null) throw new GeneralException("Päivä puuttuu!");
         if (record.getDate().before(new Date(1488400000000L))) throw new GeneralException("Ennätys ei voi sijoittua ennen serverin alkamispäivää!");
         if (record.getEvidence() == null || record.getEvidence().isEmpty()) throw new GeneralException("Todiste puuttuu!");
+        if (!record.getEvidence().startsWith("http://") && !record.getEvidence().startsWith("https://")) throw new GeneralException("Linkin on alettava 'http://' tai 'https://'");
         Record oldRecord = recordRepository.findOne(record.getTmpId());
         if (oldRecord == null) throw new GeneralException("Päivitystä ei löytynyt!");
         oldRecord.setValue(record.getValue());
