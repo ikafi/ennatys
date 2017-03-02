@@ -30,6 +30,7 @@ table, tbody, tr {
 }
 tr {
     height: 25px;
+    cursor: pointer;
 }
 tr:nth-child(even)  {
     background-color: #e2c058;
