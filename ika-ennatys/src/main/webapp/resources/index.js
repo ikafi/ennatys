@@ -1,12 +1,14 @@
+var duplicateClick = false;
 $(document).ready(function () {
-    if (success.length) {
-
-    }
-    if (error.length) {
-
-    }
+    $(".link").click(function(e) {
+        duplicateClick = true;
+    });
 });
 function update(tr, id, name, value, user, date, evidence) {
+    if (duplicateClick) {
+        duplicateClick = false;
+        return;
+    }
     $(".modal-title #name").text(name);
     $("#updateForm input#value").val(value);
     $("#updateForm input#user").val(user);

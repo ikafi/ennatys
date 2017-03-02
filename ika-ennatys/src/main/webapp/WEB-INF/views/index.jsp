@@ -50,11 +50,6 @@
         ga('create', 'UA-58417001-7', 'auto');
         ga('send', 'pageview');
     </script>
-    <script>
-        var success = '${success}';
-        var error = '${error}';
-    </script>
-
 </head>
 <body>
 <div class="container">
