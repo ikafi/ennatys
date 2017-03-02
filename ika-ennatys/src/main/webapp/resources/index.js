@@ -22,6 +22,8 @@ function update(tr, id, name, value, user, date, evidence, history) {
     if (history.length) {
         var a = generateHistoryTable(history);
         $("#updateModal #history").html(a);
+    } else {
+        $("#updateModal #history").html("");
     }
     $("#updateModal").modal("show");
 }
