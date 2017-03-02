@@ -81,7 +81,11 @@
                             <td class="value">${record.value}</td>
                             <td class="user">${record.user}</td>
                             <td class="date">${record.date}</td>
-                            <td class="link"><a href="${not empty record.evidence ? record.evidence : "#"}" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a></td>
+                            <td class="link">
+                                <c:if test="${not empty record.evidence}">
+                                    <a href="${record.evidence}" target="_blank"><span class="glyphicon glyphicon-new-window"></span></a>
+                                </c:if>
+                            </td>
                         </tr>
                     </c:forEach>
                     <tr>
