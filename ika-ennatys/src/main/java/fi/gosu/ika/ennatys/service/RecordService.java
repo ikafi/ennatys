@@ -2,12 +2,14 @@ package fi.gosu.ika.ennatys.service;
 
 import fi.gosu.ika.ennatys.domain.Category;
 import fi.gosu.ika.ennatys.domain.Record;
+import fi.gosu.ika.ennatys.exception.GeneralException;
 import fi.gosu.ika.ennatys.repository.CategoryRepository;
 import fi.gosu.ika.ennatys.repository.RecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.Date;
 
 @Service
 public class RecordService {
@@ -61,4 +63,18 @@ public class RecordService {
         }
     }
 
+    public void update(Record record) throws GeneralException {
+        if (record.getTmpId() == null) throw new GeneralException("Id puuttuu!");
+        if (record.getUser() == null || record.getUser().isEmpty()) throw new GeneralException("Anna nimesi!");
+        if (record.getDate() == null) throw new GeneralException("Päivä puuttuu!");
+        if (record.getDate().before(new Date(1488400000000L))) throw new GeneralException("Ennätys ei voi sijoittua ennen serverin alkamispäivää!");
+        if (record.getEvidence() == null || record.getEvidence().isEmpty()) throw new GeneralException("Todiste puuttuu!");
+        Record oldRecord = recordRepository.findOne(record.getTmpId());
+        if (oldRecord == null) throw new GeneralException("Päivitystä ei löytynyt!");
+        oldRecord.setValue(record.getValue());
+        oldRecord.setUser(record.getUser());
+        oldRecord.setDate(record.getDate());
+        oldRecord.setEvidence(record.getEvidence());
+        recordRepository.save(oldRecord);
+    }
 }

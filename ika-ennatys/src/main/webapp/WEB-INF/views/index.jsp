@@ -50,6 +50,10 @@
         ga('create', 'UA-58417001-7', 'auto');
         ga('send', 'pageview');
     </script>
+    <script>
+        var success = '${success}';
+        var error = '${error}';
+    </script>
 
 </head>
 <body>
@@ -57,6 +61,16 @@
     <center>
         <img src="/resources/logo.png" />
         <h1>ZETA - HALL OF FAME</h1>
+        <c:if test="${not empty success}">
+            <div class="alert alert-success">
+                    ${success}
+            </div>
+        </c:if>
+        <c:if test="${not empty error}">
+            <div class="alert alert-danger">
+                    ${error}
+            </div>
+        </c:if>
         <c:forEach items="${categories}" var="category">
             <div class="category">
                 <div class="title">${fn:toUpperCase(category.name)}</div>
@@ -90,24 +104,25 @@
                     <form id="updateForm" action="/record" method="POST" role="form">
                         <div class="form-group">
                             <label for="value">Ennätys</label>
-                            <input type="text" class="form-control" id="value" id="value" placeholder="Ennätysen arvo"/>
+                            <input type="text" class="form-control" id="value" name="value" placeholder="Ennätyksen arvo (määrä yms, jätä tyhjäksi 'Ensimmäisenä..'-ennätyksille)" autocomplete="off" />
                         </div>
                         <div class="form-group">
                             <label for="user">Nimesi</label>
-                            <input type="text" class="form-control" id="user" name="user" placeholder="Nimesi"/>
+                            <input type="text" class="form-control" id="user" name="user" placeholder="Nimesi" required="required" autocomplete="off" />
                         </div>
                         <div class="form-group">
                             <label for="user">Päivämäärä</label>
-                            <input type="text" class="form-control" id="date" name="date" placeholder="XX.YY.ZZZZ"/>
+                            <input type="text" class="form-control" id="date" name="date" placeholder="XX.YY.ZZZZ" required="required" autocomplete="off" />
                         </div>
                         <div class="form-group">
                             <label for="evidence">Todiste (linkki kuvaan)</label>
-                            <input type="text" class="form-control" id="evidence" name="evidence" placeholder="https://todiste.fi/ennatys.png"/>
+                            <input type="text" class="form-control" id="evidence" name="evidence" placeholder="https://todiste.fi/ennatys.png" required="required" autocomplete="off" />
                         </div>
+                        <input type="hidden" id="id" name="tmpId" />
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Päivitä</button>
+                    <button type="button" class="btn btn-primary" onclick="submitUpdateForm()">Päivitä</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Peruuta</button>
                 </div>
             </div>

@@ -1,3 +1,11 @@
+$(document).ready(function () {
+    if (success.length) {
+
+    }
+    if (error.length) {
+
+    }
+});
 function update(tr, id, name, value, user, date, evidence) {
     $(".modal-title #name").text(name);
     $("#updateForm input#value").val(value);
@@ -6,7 +14,19 @@ function update(tr, id, name, value, user, date, evidence) {
     $("#updateForm input#evidence").val(evidence);
     $("#updateForm input#id").val(id);
     $("#updateModal .modal-dialog").css("top", $(tr).position().top - 500);
+    $("#updateForm input").each(function (i, obj) {
+        $(obj).parent(".form-group").removeClass("has-error has-feedback");
+    })
     $("#updateModal").modal("show");
+}
+function submitUpdateForm() {
+    if (!$("#updateForm")[0].checkValidity()) {
+        $("#updateForm :invalid").each(function(i, obj) {
+            $(obj).parent(".form-group").addClass("has-error has-feedback");
+        });
+        return;
+    }
+    $("#updateForm").submit();
 }
 function now() {
     var d = new Date();

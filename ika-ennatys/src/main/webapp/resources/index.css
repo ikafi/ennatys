@@ -11,6 +11,9 @@ h1 {
     font-weight: bolder;
     font-size: 48px;
 }
+.alert {
+    width: 600px;
+}
 .category {
     width: 600px;
 }

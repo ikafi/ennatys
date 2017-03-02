@@ -1,10 +1,9 @@
 package fi.gosu.ika.ennatys.domain;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -16,10 +15,14 @@ public class Record extends AbstractPersistable<Long> {
     private String value;
     private String user;
     private String evidence;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern="dd.MM.yyyy")
     private Date date;
     @ManyToOne
     @JoinColumn(name="Category_ID")
     private Category category;
+    @Transient
+    private Long tmpId;
 
     public String getName() {
         return name;
@@ -67,5 +70,13 @@ public class Record extends AbstractPersistable<Long> {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Long getTmpId() {
+        return tmpId;
+    }
+
+    public void setTmpId(Long tmpId) {
+        this.tmpId = tmpId;
     }
 }
