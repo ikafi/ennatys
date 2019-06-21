@@ -9,8 +9,9 @@ services:
       - "0.0.0.0:5569:80"
   mysql:
     image: mysql:latest
+    restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ROOT_PASSWORD=RohJ7aebaiChoo4eebie8eit3ya1vaiphao7aebipahghe5iVoa7oung2shue0OhCheem
       - MYSQL_DATABASE=ika-ennatys
     volumes:
-      - /srv/data/ika-ennatys/mysql:/var/lib/mysql
+      - /srv/data/aikain/ikariam/records.s6-fi.ikariam.aika.in/mysql:/var/lib/mysql
